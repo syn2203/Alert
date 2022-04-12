@@ -12,11 +12,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * @author Mr.release
- * @create 2019-12-30
- * @Describe
- */
 public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> {
 
     private List<ItemBean> mAlertViewItems;
@@ -38,7 +33,7 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_alert_view_bottom, parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_alert_view_bottom, parent, false);
         return new ViewHolder(view);
     }
 
@@ -55,17 +50,17 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
         }
         ItemBean bean = mAlertViewItems.get(position);
         if (bean.getColor() != 0)
-        holder.tv_text.setTextColor(bean.getColor());
+            holder.tv_text.setTextColor(bean.getColor());
 
-        if (mAlertViewItems.size() == 1){
-            holder.tv_text.setBackground(ContextCompat.getDrawable(mContext,R.drawable.alert_bottom_single2_selector));
-        }else {
-            if (position == 0){
-                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext,R.drawable.alert_bottom_top2_selector));
-            }else if (position == mAlertViewItems.size()-1){
-                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext,R.drawable.alert_bottom_bottom2_selector));
-            }else {
-                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext,R.drawable.alert_bottom_middle2_selector));
+        if (mAlertViewItems.size() == 1) {
+            holder.tv_text.setBackground(ContextCompat.getDrawable(mContext, R.drawable.alert_bottom_single2_selector));
+        } else {
+            if (position == 0) {
+                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext, R.drawable.alert_bottom_top2_selector));
+            } else if (position == mAlertViewItems.size() - 1) {
+                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext, R.drawable.alert_bottom_bottom2_selector));
+            } else {
+                holder.tv_text.setBackground(ContextCompat.getDrawable(mContext, R.drawable.alert_bottom_middle2_selector));
             }
         }
         holder.tv_text.setText(bean.name);

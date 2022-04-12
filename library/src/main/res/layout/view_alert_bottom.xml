@@ -3,23 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp" >
+    android:padding="8dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
         android:background="@drawable/alert_bg"
-        >
+        android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            />
+            android:overScrollMode="never" />
 
     </LinearLayout>
 
@@ -31,8 +29,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/alert_bottom_single_selector"
         android:gravity="center"
-        android:text="取消"
+        android:text="Cancel"
+        android:textAllCaps="false"
         android:textColor="@color/alertdialog_bottom_blue"
         android:textSize="@dimen/dialog_bottom_size" />
-
 </LinearLayout>

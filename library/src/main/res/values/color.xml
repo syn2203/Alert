@@ -9,5 +9,6 @@
     <color name="alertdialog_black">#0E0E0E</color>
     <color name="alertdialog_bottom_gray">#8F8F8F</color>
     <color name="alertdialog_bottom_blue">#006cff</color>
-
+    <color name="colorPressed">#97ECECEC</color>
+    <color name="colorNormal">#ECECEC</color>
 </resources>

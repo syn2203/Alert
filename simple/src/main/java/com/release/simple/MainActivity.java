@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_alert_bottom2:
                 mAlert.builder(Alert.Type.BOTTOM)
-                        .addItem("相机", ContextCompat.getColor(this,R.color.black))
-                        .addItem("相册")
-                        .setBottomCancelBtnColor(ContextCompat.getColor(this,R.color.black))
+                        .addItem("Camera")
+                        .addItem("From Album")
+                        .setBottomCancelBtnColor(ContextCompat.getColor(this, R.color.alertdialog_bottom_blue))
                         .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {

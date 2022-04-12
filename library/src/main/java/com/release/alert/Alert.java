@@ -24,11 +24,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Mr.release
- * @create 2019-12-27
- * @Describe
- */
 public class Alert {
     private Context context;
     private Dialog dialog;
@@ -50,16 +45,10 @@ public class Alert {
 
     public Alert(Context context) {
         this.context = context;
-        WindowManager windowManager = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
     }
 
-    /**
-     * 默认NORMAL类型
-     *
-     * @return
-     */
     public Alert builder() {
         initNormalType();
         return this;
@@ -91,8 +80,7 @@ public class Alert {
 
 
     private void initNormalType() {
-        View view = LayoutInflater.from(context).inflate(
-                R.layout.view_alert, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.view_alert, null);
 
         lLayout_bg = view.findViewById(R.id.lLayout_bg);
         txt_title = view.findViewById(R.id.txt_title);
@@ -109,8 +97,7 @@ public class Alert {
         dialog = new Dialog(context, R.style.AlertDialogStyle);
         dialog.setContentView(view);
 
-        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display
-                .getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT));
+        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
     private void initProgressType() {
@@ -125,13 +112,11 @@ public class Alert {
         window.setBackgroundDrawableResource(android.R.color.transparent);
         //去除半透明阴影
         window.setDimAmount(0.0f);
-        dialog_loading_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display
-                .getWidth() * 0.4), LinearLayout.LayoutParams.WRAP_CONTENT));
+        dialog_loading_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 0.4), LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
     private void initBottomType() {
-        View view = LayoutInflater.from(context).inflate(
-                R.layout.view_alert_bottom, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.view_alert_bottom, null);
 
         view.setMinimumWidth(display.getWidth());
         bottom_rv_content = view.findViewById(R.id.rv_content);
@@ -191,12 +176,13 @@ public class Alert {
         return this;
     }
 
-    /**
-     * 设置标题
-     *
-     * @param msg
-     * @return
-     */
+    public Alert setAlertBackgroundColor(@ColorInt int color) {
+        if (txt_cancel != null) {
+            txt_cancel.setTextColor(color);
+        }
+        return this;
+    }
+
     public Alert setProgressText(String msg) {
         if (mProMsgText != null) {
             mProMsgText.setVisibility(View.VISIBLE);
@@ -210,13 +196,6 @@ public class Alert {
         return this;
     }
 
-
-    /**
-     * 设置标题
-     *
-     * @param title
-     * @return
-     */
     public Alert setTitle(String title) {
 
         if (txt_title != null) {
@@ -226,14 +205,8 @@ public class Alert {
         return this;
     }
 
-    /**
-     * 设置内容
-     *
-     * @param msg
-     * @return
-     */
     public Alert setMsg(String msg) {
-        if (txt_msg != null){
+        if (txt_msg != null) {
             txt_msg.setVisibility(View.VISIBLE);
             txt_msg.setText(msg == null ? "" : msg);
         }
@@ -246,12 +219,6 @@ public class Alert {
         return this;
     }
 
-    /**
-     * 设置false点击屏幕或物理返回键，dialog不消失
-     *
-     * @param cancel
-     * @return
-     */
     public Alert setCancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return this;
@@ -412,8 +379,7 @@ public class Alert {
 
     public Alert addItem(List<ItemBean> strItem) {
         if (mAlertViewItems != null && strItem != null) {
-            for (ItemBean bean : strItem)
-                mAlertViewItems.add(bean);
+            mAlertViewItems.addAll(strItem);
         }
 
         return this;
@@ -422,9 +388,7 @@ public class Alert {
     private void notifyData() {
         if (mAlertViewItems == null || mAlertViewItems.size() <= 0)
             return;
-        if (mAlertViewItems.size() == 1) {
-
-        }
+        mAlertViewItems.size();
         mAlertViewAdapter.notifyDataSetChanged();
     }
 
