@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:background="@drawable/shape_corner_around_white"
     android:orientation="vertical"
-    android:paddingTop="@dimen/dp_30">
+    android:paddingTop="@dimen/dp_60">
 
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_20"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_36"
@@ -30,7 +30,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
-        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_60"
         android:background="@color/alertdialog_line" />
 
     <LinearLayout
