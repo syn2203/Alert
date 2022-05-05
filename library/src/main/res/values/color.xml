@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="red">#F44336</color>
     <color name="alertdialog_line">#0F000000</color>
     <color name="alertdialog_bg_sel">#0F000000</color>
     <color name="alertdialog_neg_blue">#006cff</color>

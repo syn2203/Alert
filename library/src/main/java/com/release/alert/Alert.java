@@ -29,7 +29,7 @@ public class Alert {
     private Dialog dialog;
     private LinearLayout lLayout_bg, dialog_loading_bg;
     private TextView txt_title, txt_msg, txt_cancel;
-    private Button btn_neg, btn_pos;
+    private TextView btn_neg, btn_pos;
     private View img_line;
     private Display display;
     private RecyclerView bottom_rv_content;
@@ -96,8 +96,7 @@ public class Alert {
 
         dialog = new Dialog(context, R.style.AlertDialogStyle);
         dialog.setContentView(view);
-
-        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT));
+        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 0.72), LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
     private void initProgressType() {
@@ -152,11 +151,11 @@ public class Alert {
         dialog = new Dialog(context, R.style.CustomDialogStyle);
         dialog.setContentView(mDialogLayout);
         Window window = dialog.getWindow();
-        window.setBackgroundDrawableResource(android.R.color.transparent);
+        window.setBackgroundDrawableResource(R.color.alertdialog_line);
         window.setDimAmount(0.0f);
         WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        lp.height = ViewGroup.LayoutParams.MATCH_PARENT;
+        lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+        lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         window.setAttributes(lp);
     }
 
@@ -245,7 +244,6 @@ public class Alert {
     public Alert setPositiveButton(String text, final View.OnClickListener listener) {
         if (btn_pos != null) {
             btn_pos.setVisibility(View.VISIBLE);
-            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
             btn_pos.setText(TextUtils.isEmpty(text) ? "确定" : text);
             btn_pos.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -267,7 +265,6 @@ public class Alert {
     public Alert setPositiveButton(final View.OnClickListener listener) {
         if (btn_pos != null) {
             btn_pos.setVisibility(View.VISIBLE);
-            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
             btn_pos.setText("确定");
             btn_pos.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -291,7 +288,6 @@ public class Alert {
                                    final View.OnClickListener listener) {
         if (btn_neg != null) {
             btn_neg.setVisibility(View.VISIBLE);
-            btn_neg.setBackgroundResource(R.drawable.alert_btn_left_selector);
             img_line.setVisibility(btn_pos.getVisibility());
             btn_neg.setText(TextUtils.isEmpty(text) ? "取消" : text);
             btn_neg.setOnClickListener(new View.OnClickListener() {
@@ -314,7 +310,6 @@ public class Alert {
     public Alert setNegativeButton(final View.OnClickListener listener) {
         if (btn_neg != null) {
             btn_neg.setVisibility(View.VISIBLE);
-            btn_neg.setBackgroundResource(R.drawable.alert_btn_left_selector);
             img_line.setVisibility(btn_pos.getVisibility());
             btn_neg.setText("取消");
             btn_neg.setOnClickListener(new View.OnClickListener() {

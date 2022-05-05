@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_alert2:
                 mAlert.builder()
                         .setTitle("标题")
-                        .setMsg("仿ios弹窗")
-                        .setPositiveButton(new View.OnClickListener() {
+                        .setMsg("Are you sure to join in this channel?")
+                        .setPositiveButton("test", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Toast.makeText(MainActivity.this, "确定", Toast.LENGTH_SHORT).show();
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                                 });
                             }
                         })
+                        .setAlertBackgroundColor(ContextCompat.getColor(this, R.color.alertdialog_bottom_blue))
                         .show();
             }
             break;
