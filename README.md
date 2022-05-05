@@ -25,7 +25,7 @@ allprojects {
 	
 ```java
 //implementation 'com.github.enChenging:Alert:latest.release'
-implementation 'com.github.enChenging:Alert:1.1.0'
+implementation 'com.github.enChenging:Alert:1.1.1'
 ```
 
 
