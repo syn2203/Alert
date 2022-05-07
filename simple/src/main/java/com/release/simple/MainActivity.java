@@ -92,6 +92,18 @@ public class MainActivity extends AppCompatActivity {
                         })
                         .show();
                 break;
+            case R.id.btn_alert_normal_custom:
+                mAlert.builder(Alert.Type.BOTTOM_NORMAL)
+                        .addItem("Camera")
+                        .addItem("From Album")
+                        .setOnItemClickNormalListener(new Alert.OnAlertItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
+                break;
             case R.id.btn_alert_bottom3:
                 mAlert.builder(Alert.Type.BOTTOM)
                         .addItem(bottomData)
@@ -156,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAlertBackgroundColor(ContextCompat.getColor(this, R.color.alertdialog_bottom_blue))
                         .show();
             }
-            break;
         }
     }
 

@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,10 +36,11 @@ public class Alert {
     private TextView mProMsgText;
     private List<ItemBean> mAlertViewItems;
     private AlertAdapter mAlertViewAdapter;
+    private AlertNormalAdapter mAlertNormalViewAdapter;
     private View mDialogLayout;
 
     public enum Type {
-        NORMAL, PROGRESS, BOTTOM, CUSTOM_DIALOG
+        NORMAL, PROGRESS, BOTTOM, BOTTOM_NORMAL, CUSTOM_DIALOG
     }
 
     public Alert(Context context) {
@@ -65,6 +65,9 @@ public class Alert {
                 break;
             case BOTTOM:
                 initBottomType();
+                break;
+            case BOTTOM_NORMAL:
+                initBottomNormalType();
                 break;
         }
         return this;
@@ -135,6 +138,26 @@ public class Alert {
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.alert_line);
         dec.setDrawable(drawable);
         bottom_rv_content.addItemDecoration(dec);
+        bottom_rv_content.setLayoutManager(layoutManager);
+        dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
+        dialog.setContentView(view);
+        Window dialogWindow = dialog.getWindow();
+        dialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        lp.x = 0;
+        lp.y = 0;
+        dialogWindow.setAttributes(lp);
+    }
+
+    private void initBottomNormalType() {
+        View view = LayoutInflater.from(context).inflate(R.layout.view_alert_bottom_normal, null);
+        view.setMinimumWidth(display.getWidth());
+        bottom_rv_content = view.findViewById(R.id.rv_content);
+
+        mAlertViewItems = new ArrayList();
+        mAlertNormalViewAdapter = new AlertNormalAdapter(context, mAlertViewItems);
+        bottom_rv_content.setAdapter(mAlertNormalViewAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         bottom_rv_content.setLayoutManager(layoutManager);
         dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
         dialog.setContentView(view);
@@ -346,6 +369,19 @@ public class Alert {
         }
         return this;
     }
+    public Alert setOnItemClickNormalListener(final OnAlertItemClickListener onAlertItemClickListener) {
+        if (mAlertNormalViewAdapter != null) {
+            mAlertNormalViewAdapter.setOnItemClickLitener(new AlertNormalAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    onAlertItemClickListener.onItemClick(view, position);
+                    dialog.dismiss();
+                }
+            });
+            dialog.dismiss();
+        }
+        return this;
+    }
 
     /**
      * @param strItem 条目名称
@@ -387,6 +423,13 @@ public class Alert {
         mAlertViewAdapter.notifyDataSetChanged();
     }
 
+    private void notifyNormalData() {
+        if (mAlertViewItems == null || mAlertViewItems.size() <= 0)
+            return;
+        mAlertViewItems.size();
+        mAlertNormalViewAdapter.notifyDataSetChanged();
+    }
+
     public void show() {
         switch (mType) {
             case NORMAL:
@@ -395,6 +438,9 @@ public class Alert {
                 break;
             case BOTTOM:
                 notifyData();
+                break;
+            case BOTTOM_NORMAL:
+                notifyNormalData();
                 break;
         }
         dialog.show();
