@@ -174,8 +174,7 @@ public class Alert {
         dialog = new Dialog(context, R.style.CustomDialogStyle);
         dialog.setContentView(mDialogLayout);
         Window window = dialog.getWindow();
-        window.setBackgroundDrawableResource(R.color.alertdialog_line);
-        window.setDimAmount(0.0f);
+        window.setDimAmount(0.5f);
         WindowManager.LayoutParams lp = window.getAttributes();
         lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -369,6 +368,7 @@ public class Alert {
         }
         return this;
     }
+
     public Alert setOnItemClickNormalListener(final OnAlertItemClickListener onAlertItemClickListener) {
         if (mAlertNormalViewAdapter != null) {
             mAlertNormalViewAdapter.setOnItemClickLitener(new AlertNormalAdapter.OnItemClickListener() {
