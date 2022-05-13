@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_alert2:
                 mAlert.builder()
                         .setTitle("标题")
-                        .setMsg("Are you sure to join in this channel?")
+                        .setMsg("Are you sure to delete this post?")
                         .setPositiveButton("test", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

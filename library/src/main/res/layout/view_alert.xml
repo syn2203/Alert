@@ -22,8 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingHorizontal="@dimen/dp_30"
-        android:text="Are you sure to join in this channel?"
+        android:paddingHorizontal="@dimen/dp_80"
+        android:text="Are you sure to delete this post?"
         android:textColor="@color/alertdialog_black"
         android:textSize="@dimen/sp_36" />
 
