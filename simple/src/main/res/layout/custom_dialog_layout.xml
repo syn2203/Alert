@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="#80000000"
-    >
+    android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/iv_close"
         android:layout_width="25dp"
@@ -16,63 +15,70 @@
         android:id="@+id/iv_gift"
         android:layout_width="500dp"
         android:layout_height="400dp"
-        android:background="@mipmap/new_user_gift_package"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        >
+        android:layout_centerInParent="true"
+        android:background="@mipmap/new_user_gift_package">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="140dp"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="76dp"
                 android:layout_height="76dp"
                 android:background="@mipmap/new_user_gift"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/gift_cuke"/>
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/gift_cuke" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FF4500"
-                    android:text="20个"/>
+                    android:text="20个"
+                    android:textColor="#FF4500" />
             </LinearLayout>
+
             <View
                 android:layout_width="20dp"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp" />
+
             <LinearLayout
                 android:layout_width="76dp"
                 android:layout_height="76dp"
-                android:orientation="vertical"
+                android:background="@mipmap/new_user_gift"
                 android:gravity="center_horizontal"
-                android:background="@mipmap/new_user_gift">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/gift_car_audi_l"/>
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/gift_car_audi_l" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#a44808"
-                    android:text="7天"/>
+                    android:text="7天"
+                    android:textColor="#a44808" />
             </LinearLayout>
         </LinearLayout>
+
         <Button
             android:id="@+id/btn_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="60dp"
             android:background="@drawable/selector_green_hand_btn"
             android:textColor="@android:color/white"
